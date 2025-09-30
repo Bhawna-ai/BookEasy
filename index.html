@@ -7,46 +7,147 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-    <header class="main-header">BookEasy</header>
-    <a href="">Business Login</a>
-    </nav>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">BookEasy</div>
+            <button class="business-login">&#128100; Business Login</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
     <section class="hero">
-        <h1>Book Your Perfect Experience</h1>
-        <p>Discover and book reservations at the best restaurants, spas,<br> gyms, and salons in your area</p>
-        <form action="#" method="post" class="search-form">
-            <label for="input"></label>
-            <input type="text" class="search-input" id="input" name="input" placeholder="Search for restaurants, gyms, spas...">
-            <label for="search"> </label>
-            <input type="button" class="search-button" id="search" name="search" placeholder="Search">
-        </form>
-        </section>
-        <section class="services-section">
-            <h2>Choose Your Service</h2>
-            <div class="service-blocks-grid">
-                <div class="service-card">
-                    <h3>Restaurants</h3>
-                    <img src="" alt="">
-                    <a href="">Explore→ </a>
+        <div class="hero-overlay">
+            <h1>Book Your Perfect <span class="highlight">Experience</span></h1>
+            <p>Discover and book reservations at the best restaurants, spas, gyms, and salons in your area</p>
+            <form class="search-form">
+                <input type="text" placeholder="Search for restaurants, spas, gyms, salons..." aria-label="Search">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Choose Your Service -->
+    <section class="choose-service">
+        <h2>Choose Your Service</h2>
+        <p>Discover amazing experiences near you</p>
+        <div class="service-cards">
+            <div class="service-card restaurant">
+                <div class="icon">🍽️</div>
+                <h3>Restaurants</h3>
+                <p>Book tables at top restaurants</p>
+                <a href="#" class="explore-link">Explore <span>&rarr;</span></a>
+            </div>
+            <div class="service-card spa">
+                <div class="icon">✨</div>
+                <h3>Spas</h3>
+                <p>Relax with premium spa services</p>
+                <a href="#" class="explore-link">Explore <span>&rarr;</span></a>
+            </div>
+            <div class="service-card gym">
+                <div class="icon">🏋️</div>
+                <h3>Gyms</h3>
+                <p>Train with professional guidance</p>
+                <a href="#" class="explore-link">Explore <span>&rarr;</span></a>
+            </div>
+            <div class="service-card salon">
+                <div class="icon">✂️</div>
+                <h3>Salons</h3>
+                <p>Style yourself at top salons</p>
+                <a href="#" class="explore-link">Explore <span>&rarr;</span></a>
+            </div>
+        </div>
+        <div class="service-filters">
+            <button class="filter active">All Services</button>
+            <button class="filter">🍽️ Restaurants</button>
+            <button class="filter">✨ Spas</button>
+            <button class="filter">🏋️ Gyms</button>
+            <button class="filter">✂️ Salons</button>
+        </div>
+    </section>
+
+    <!-- Featured Businesses -->
+    <section class="featured-businesses">
+        <h2>Featured Businesses</h2>
+        <div class="business-cards">
+            <div class="business-card">
+                <div class="business-image business-restaurant"></div>
+                <div class="business-rating"><span>⭐</span> 4.8</div>
+                <h3>The Gourmet Kitchen</h3>
+                <div class="business-location">Downtown Plaza</div>
+                <div class="business-tags">
+                    <span>Dinner</span>
+                    <span>Lunch</span>
+                    <span>+2 more</span>
                 </div>
-                <div class="service-card">
-                    <h3>Gyms</h3>
-                    <img src="" alt="">
-                    <a href="">Explore→ </a>
+                <button class="book-now">&#128197; Book Now</button>
+            </div>
+            <div class="business-card">
+                <div class="business-image business-spa"></div>
+                <div class="business-rating"><span>⭐</span> 4.9</div>
+                <h3>Zen Spa Retreat</h3>
+                <div class="business-location">Wellness District</div>
+                <div class="business-tags">
+                    <span>Deep Tissue Massage</span>
+                    <span>Swedish Massage</span>
+                    <span>+2 more</span>
                 </div>
-                <div class="service-card">
-                    <h3>Salons</h3>
-                    <img src="" alt="">
-                    <a href="">Explore→ </a>
+                <button class="book-now">&#128197; Book Now</button>
+            </div>
+            <div class="business-card">
+                <div class="business-image business-gym"></div>
+                <div class="business-rating"><span>⭐</span> 4.6</div>
+                <h3>PowerFit Gym</h3>
+                <div class="business-location">Sports Complex</div>
+                <div class="business-tags">
+                    <span>Personal Training</span>
+                    <span>Group Classes</span>
+                    <span>+2 more</span>
+                </div>
+                <button class="book-now">&#128197; Book Now</button>
+            </div>
+            <div class="business-card">
+                <div class="business-image business-salon"></div>
+                <div class="business-rating"><span>⭐</span> 4.7</div>
+                <h3>Elite Salon</h3>
+                <div class="business-location">Fashion Avenue</div>
+                <div class="business-tags">
+                    <span>Haircut & Styling</span>
+                    <span>Hair Coloring</span>
+                    <span>+2 more</span>
+                </div>
+                <button class="book-now">&#128197; Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted by Thousands -->
+    <section class="trusted">
+        <div class="trusted-overlay">
+            <div class="trusted-stats">
+                <div class="stat">
+                    <div class="stat-value">50K+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">1,200+</div>
+                    <div class="stat-label">Partner Businesses</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">98%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
                 </div>
             </div>
-        </section>
-    <ul>
-        <li><button>All Services</button></li>
-        <li><button>Restaurants</button></li>
-        <li><button>Gyms</button></li>
-        <li><button>Salons</button></li>
-    </ul>
+            <h2>Trusted by Thousands</h2>
+            <p>Join our community of satisfied customers</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+        </div>
+    </footer>
 
 </body>
 </html>
