@@ -39,7 +39,7 @@ header.header {
 	font-weight: 500;
 	cursor: pointer;
 	box-shadow: 0 2px 8px rgba(0,0,0,0.08);zz
-	transition: background 0.2s;
+	transition : background 0.2s;
 }
 .business-login:hover {
 	background: #a07a5b;
