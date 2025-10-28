@@ -30,19 +30,28 @@ header.header {
 	letter-spacing: 1px;
 }
 .business-login {
-	background: #b48c6e;
+	background: #a87b65;
 	color: #fff;
 	border: none;
-	border-radius: 10px;
-	padding: 0.6rem 1.5rem;
+	border-radius: 25px;
+	padding: 8px 18px;
 	font-size: 1rem;
 	font-weight: 500;
 	cursor: pointer;
 	box-shadow: 0 2px 8px rgba(0,0,0,0.08);zz
-	transition : background 0.2s;
+	transition: background-color 0.3s ease; 
+}
+.business-login a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; 
 }
 .business-login:hover {
-	background: #a07a5b;
+	background: #8b5e45;
 }
 
 section.hero {
