@@ -53,6 +53,14 @@ header.header {
 .business-login:hover {
 	background: #8b5e45;
 }
+.service-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
 
 section.hero {
 	background: linear-gradient(90deg, #b48c6e99 0%, #f7c08a99 100%), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
@@ -125,62 +133,92 @@ section.choose-service {
 	padding: 0 2rem;
 	text-align: center;
 }
+.choose-service{
+	text-align: center;
+	padding: 60px 0;
+	background: #fff;
+}
 .choose-service h2 {
 	font-size: 2.2rem;
-	font-weight: 700;
-	margin-bottom: 0.3rem;
+	font-weight: 800;
+	margin-bottom: 10px;
+	color: #2b2b2b;
 }
 .choose-service p {
-	color: #6d6d6d;
-	margin-bottom: 2.2rem;
+	color: #7a7a7a;
+	margin-bottom: 50px;
+	font-size: 1.1rem;
 }
 .service-cards {
 	display: flex;
-	gap: 2rem;
+	gap: 35px;
 	justify-content: center;
 	flex-wrap: wrap;
 	margin-bottom: 1.5rem;
 }
 .service-card {
-	background: #fff;
-	border-radius: 22px;
-	box-shadow: 0 4px 24px rgba(180,140,110,0.08);
-	padding: 2rem 1.5rem 1.5rem 1.5rem;
-	min-width: 220px;
-	max-width: 250px;
-	flex: 1 1 220px;
-	text-align: left;
-	position: relative;
-	transition: transform 0.15s, box-shadow 0.15s;
+	 position: relative;
+  width: 270px;
+  height: 340px;
+  border-radius: 25px;
+  overflow: hidden;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0,15);
+  transition: all 0.4s ease;
+  cursor: pointer;
 }
 .service-card:hover {
-	transform: translateY(-6px) scale(1.03);
-	box-shadow: 0 8px 32px rgba(180,140,110,0.16);
+	transform: translateY(-8px) scale(1.03);
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+.overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
+	z-index: 1;
+}
+.service-card * {
+  position: relative;
+  z-index: 2;
 }
 .service-card .icon {
-	font-size: 2.2rem;
-	margin-bottom: 0.7rem;
-	display: block;
+	 display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  backdrop-filter: blur(5px);
 }
 .service-card h3 {
 	font-size: 1.3rem;
 	font-weight: 700;
-	margin: 0 0 0.3rem 0;
+	margin-bottom: 5px;
 }
 .service-card p {
-	color: #6d6d6d;
-	font-size: 1rem;
-	margin-bottom: 1.2rem;
+	color: #ddd;
+	font-size: 0.95rem;
+	margin-bottom: 15px;
 }
 .explore-link {
-	color: #f7c08a;
+	color: #f9b572;
 	text-decoration: none;
 	font-weight: 600;
 	font-size: 1.05rem;
 	transition: color 0.2s;
 }
 .explore-link:hover {
-	color: #b48c6e;
+	color: #ffd38a;
 }
 
 .service-filters {
@@ -188,6 +226,18 @@ section.choose-service {
 	gap: 1rem;
 	justify-content: center;
 	margin-bottom: 2.5rem;
+}
+.service-card.restaurant {
+	background-image: url(https://wallpapercave.com/wp/wp1874159.jpg);
+}
+.service-card.spa {
+	background-image:url(https://wallpaperaccess.com/full/1251812.jpg) ;
+}
+.service-card.gym {
+	background-image: url(https://tse2.mm.bing.net/th/id/OIP.nZZgoWdEmQXj3qE6S_VX7wHaEt?rs=1&pid=ImgDetMain&o=7&rm=3);
+}
+.service-card.salon {
+	background-image:url(https://i.pinimg.com/originals/1b/80/23/1b80234280c4c55a76cce8548667347f.jpg) ;
 }
 .filter {
 	background: #fff;
@@ -382,11 +432,15 @@ footer.footer {
 	font-weight: 500;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
 	.service-cards, .business-cards, .trusted-stats {
 		flex-direction: column;
 		gap: 1.2rem;
 		align-items: center;
+	}
+	.service-card{
+		width: 90%;
+		height: 320px;
 	}
 	.header-container, .footer-content {
 		padding: 0 1rem;
