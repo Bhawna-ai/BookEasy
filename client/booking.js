@@ -8,28 +8,32 @@ const businesses = {
         { name: 'Ocean View Bistro', location: 'Waterfront District' },
         { name: 'Mountain Peak Restaurant', location: 'Highland Center' },
         { name: 'Urban Eatery', location: 'City Square' },
-        { name: 'Garden Terrace', location: 'Park Avenue' }
+        { name: 'Garden Terrace', location: 'Park Avenue' },
+        { name: 'Spice Route', location: 'Asian Quarter' }
     ],
     spa: [
         { name: 'Zen Spa Retreat', location: 'Wellness District' },
         { name: 'Serenity Spa', location: 'Tranquil Gardens' },
         { name: 'Luxury Wellness Center', location: 'Resort Quarter' },
         { name: 'Natural Healing Spa', location: 'Green Valley' },
-        { name: 'Royal Spa & Massage', location: 'Palace Street' }
+        { name: 'Royal Spa & Massage', location: 'Palace Street' },
+        { name: 'Bliss Body & Soul', location: 'Harmony Plaza' }
     ],
     gym: [
         { name: 'PowerFit Gym', location: 'Sports Complex' },
         { name: 'Elite Fitness Center', location: 'Athletic District' },
         { name: 'Iron Paradise', location: 'Muscle Beach' },
         { name: 'Yoga & Fitness Studio', location: 'Harmony Plaza' },
-        { name: 'CrossFit Arena', location: 'Champion Way' }
+        { name: 'CrossFit Arena', location: 'Champion Way' },
+        { name: '24/7 Fitness Hub', location: 'Downtown' }
     ],
     salon: [
         { name: 'Elite Salon', location: 'Fashion Avenue' },
         { name: 'Glamour Hair Studio', location: 'Style District' },
         { name: 'Prestige Beauty Lounge', location: 'Elegant Square' },
         { name: 'Trendy Cuts & Colors', location: 'Modern Street' },
-        { name: 'Luxury Hair Boutique', location: 'Designer Lane' }
+        { name: 'Luxury Hair Boutique', location: 'Designer Lane' },
+        { name: 'Quick Cuts Express', location: 'Downtown' }
     ]
 };
 
