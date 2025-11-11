@@ -21,14 +21,12 @@ app.use(express.urlencoded({ extended: true }));
 
 // ✅ Serve frontend static files
 app.use(express.static(path.join(__dirname, "client")));
+app.use(express.static(__dirname));
 
 // MongoDB Connection
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/BookEasy';
 
-mongoose.connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
+mongoose.connect(MONGO_URI)
 .then(() => console.log('✅ MongoDB Connected Successfully'))
 .catch((err) => console.error('❌ MongoDB Connection Error:', err));
 
@@ -105,9 +103,11 @@ app.get('/api/health', (req, res) => res.json({ success: true, message: 'API Run
 
 // ✅ Serve index.html for all frontend routes
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "index.html"));
+    res.sendFile(path.join(__dirname, "index.html"));
 });
 
 
 // ✅ Start Server
 app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
+
+
