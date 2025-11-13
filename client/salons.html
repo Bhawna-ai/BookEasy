@@ -10,15 +10,15 @@
 <body>
     <header class="header">
         <div class="container header-container">
-            <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">BookEasy</a></div>
+            <div class="logo"><a href="../index.html" style="text-decoration: none; color: inherit;">BookEasy</a></div>
             <nav class="main-nav">
-                <a href="index.html">Home</a>
+                <a href="../index.html">Home</a>
                 <a href="restaurants.html">Restaurants</a>
                 <a href="spas.html">Spas</a>
                 <a href="gyms.html">Gyms</a>
                 <a href="salons.html" class="active">Salons</a>
             </nav>
-            <button class="business-login"><a href="business-login.html">🔒 Business Login</a></button>
+            <button class="business-login"><a href="../business-login.html">🔒 Business Login</a></button>
         </div>
     </header>
 
@@ -199,7 +199,7 @@
 
     <script>
         function bookNow(serviceType, businessName) {
-            window.location.href = `client/booking.html?service=${serviceType}&business=${encodeURIComponent(businessName)}`;
+            window.location.href = `booking.html?service=${serviceType}&business=${encodeURIComponent(businessName)}`;
         }
     </script>
 </body>
