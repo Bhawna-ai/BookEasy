@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spas - BookEasy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="services.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo"><a href="../index.html" style="text-decoration: none; color: inherit;">BookEasy</a></div>
+            <nav class="main-nav">
+                <a href="../index.html">Home</a>
+                <a href="restaurants.html">Restaurants</a>
+                <a href="spas.html" class="active">Spas</a>
+                <a href="gyms.html">Gyms</a>
+                <a href="salons.html">Salons</a>
+            </nav>
+            <button class="business-login"><a href="../business-login.html">🔒 Business Login</a></button>
+        </div>
+    </header>
+
+    <section class="service-hero spa-hero">
+        <div class="hero-overlay">
+            <div class="service-icon-large">✨</div>
+            <h1>Relax & Rejuvenate</h1>
+            <p>Book premium spa treatments and wellness experiences</p>
+        </div>
+    </section>
+
+    <main class="service-container">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Spas & Wellness Centers</h2>
+                <p>Discover tranquility and pamper yourself at top-rated spas</p>
+            </div>
+
+            <div class="businesses-grid">
+                <!-- Spa 1 -->
+                <div class="business-item" onclick="bookNow('spa', 'Zen Spa Retreat')">
+                    <div class="business-img spa-1"></div>
+                    <div class="business-content">
+                        <div class="business-header">
+                            <h3>Zen Spa Retreat</h3>
+                            <div class="rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-number">4.9</span>
+                            </div>
+                        </div>
+                        <p class="location">📍 Wellness District, Tranquil Lane</p>
+                        <p class="description">Experience ultimate relaxation with our signature massages, facials, and holistic treatments in a serene environment.</p>
+                        <div class="features">
+                            <span class="feature-tag">💆 Deep Tissue</span>
+                            <span class="feature-tag">🧘 Meditation</span>
+                            <span class="feature-tag">🌸 Aromatherapy</span>
+                        </div>
+                        <div class="business-footer">
+                            <div class="price-range">$$$ - Premium</div>
+                            <button class="book-btn">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spa 2 -->
+                <div class="business-item" onclick="bookNow('spa', 'Serenity Spa')">
+                    <div class="business-img spa-2"></div>
+                    <div class="business-content">
+                        <div class="business-header">
+                            <h3>Serenity Spa</h3>
+                            <div class="rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-number">4.8</span>
+                            </div>
+                        </div>
+                        <p class="location">📍 Tranquil Gardens, Peace Avenue</p>
+                        <p class="description">Luxury spa offering Swedish massage, hot stone therapy, and beauty treatments in a peaceful garden setting.</p>
+                        <div class="features">
+                            <span class="feature-tag">🪨 Hot Stone</span>
+                            <span class="feature-tag">💅 Manicure/Pedicure</span>
+                            <span class="feature-tag">🧖 Sauna</span>
+                        </div>
+                        <div class="business-footer">
+                            <div class="price-range">$$$ - Premium</div>
+                            <button class="book-btn">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spa 3 -->
+                <div class="business-item" onclick="bookNow('spa', 'Luxury Wellness Center')">
+                    <div class="business-img spa-3"></div>
+                    <div class="business-content">
+                        <div class="business-header">
+                            <h3>Luxury Wellness Center</h3>
+                            <div class="rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-number">5.0</span>
+                            </div>
+                        </div>
+                        <p class="location">📍 Resort Quarter, Luxury Boulevard</p>
+                        <p class="description">Five-star wellness center with state-of-the-art facilities including hydrotherapy pools and private treatment suites.</p>
+                        <div class="features">
+                            <span class="feature-tag">🏊 Hydrotherapy</span>
+                            <span class="feature-tag">💎 VIP Suites</span>
+                            <span class="feature-tag">🍵 Tea Lounge</span>
+                        </div>
+                        <div class="business-footer">
+                            <div class="price-range">$$$$ - Luxury</div>
+                            <button class="book-btn">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spa 4 -->
+                <div class="business-item" onclick="bookNow('spa', 'Natural Healing Spa')">
+                    <div class="business-img spa-4"></div>
+                    <div class="business-content">
+                        <div class="business-header">
+                            <h3>Natural Healing Spa</h3>
+                            <div class="rating">
+                                <span class="stars">⭐⭐⭐⭐</span>
+                                <span class="rating-number">4.7</span>
+                            </div>
+                        </div>
+                        <p class="location">📍 Green Valley, Nature Trail</p>
+                        <p class="description">Organic spa treatments using natural ingredients. Specializing in Ayurvedic therapies and herbal remedies.</p>
+                        <div class="features">
+                            <span class="feature-tag">🌿 Organic</span>
+                            <span class="feature-tag">🕉️ Ayurveda</span>
+                            <span class="feature-tag">🌺 Herbal</span>
+                        </div>
+                        <div class="business-footer">
+                            <div class="price-range">$$ - Moderate</div>
+                            <button class="book-btn">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spa 5 -->
+                <div class="business-item" onclick="bookNow('spa', 'Royal Spa & Massage')">
+                    <div class="business-img spa-5"></div>
+                    <div class="business-content">
+                        <div class="business-header">
+                            <h3>Royal Spa & Massage</h3>
+                            <div class="rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-number">4.9</span>
+                            </div>
+                        </div>
+                        <p class="location">📍 Palace Street, Royal Gardens</p>
+                        <p class="description">Experience royal treatment with Thai massage, reflexology, and couples spa packages.</p>
+                        <div class="features">
+                            <span class="feature-tag">🇹🇭 Thai Massage</span>
+                            <span class="feature-tag">👣 Reflexology</span>
+                            <span class="feature-tag">💑 Couples Package</span>
+                        </div>
+                        <div class="business-footer">
+                            <div class="price-range">$$$ - Premium</div>
+                            <button class="book-btn">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spa 6 -->
+                <div class="business-item" onclick="bookNow('spa', 'Bliss Body & Soul')">
+                    <div class="business-img spa-6"></div>
+                    <div class="business-content">
+                        <div class="business-header">
+                            <h3>Bliss Body & Soul</h3>
+                            <div class="rating">
+                                <span class="stars">⭐⭐⭐⭐</span>
+                                <span class="rating-number">4.6</span>
+                            </div>
+                        </div>
+                        <p class="location">📍 Harmony Plaza, Zen Street</p>
+                        <p class="description">Modern spa offering body wraps, facials, and wellness consultations. Perfect for busy professionals.</p>
+                        <div class="features">
+                            <span class="feature-tag">🧴 Body Wraps</span>
+                            <span class="feature-tag">✨ Facials</span>
+                            <span class="feature-tag">📅 Quick Service</span>
+                        </div>
+                        <div class="business-footer">
+                            <div class="price-range">$$ - Moderate</div>
+                            <button class="book-btn">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 BookEasy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function bookNow(serviceType, businessName) {
+            window.location.href = `booking.html?service=${serviceType}&business=${encodeURIComponent(businessName)}`;
+        }
+    </script>
+</body>
+</html>
