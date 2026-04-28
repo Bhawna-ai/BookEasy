@@ -8,38 +8,73 @@ import Booking from './models/Booking.js';
 
 dotenv.config();
 
+// ===================== PATH SETUP =====================
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// ===================== APP CONFIG =====================
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
-app.use(cors());
+// ===================== MIDDLEWARE =====================
+app.use(cors({
+    origin: "*",
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+    credentials: true
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ✅ Serve frontend static files
+// ===================== STATIC FILES =====================
 app.use(express.static(path.join(__dirname, "client")));
 app.use(express.static(__dirname));
 
-// MongoDB Connection
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/BookEasy';
+// ===================== MONGODB CONNECTION =====================
+const MONGO_URI = process.env.MONGO_URI;
 
-mongoose.connect(MONGO_URI)
-.then(() => console.log('✅ MongoDB Connected Successfully'))
-.catch((err) => console.error('❌ MongoDB Connection Error:', err));
+if (!MONGO_URI) {
+    console.error("❌ MONGO_URI is missing in .env file");
+    process.exit(1);
+}
 
+mongoose.connect(MONGO_URI, {
+    dbName: "bookeasy"
+})
+.then(() => {
+    console.log("✅ MongoDB Connected Successfully");
+})
+.catch((err) => {
+    console.error("❌ MongoDB Connection Error:", err.message);
+    process.exit(1);
+});
 
-// ===================== API ROUTES ======================
+// ===================== API ROUTES =====================
+
+// Health Check
+app.get('/api/health', (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "API Running Successfully"
+    });
+});
 
 // Get all bookings
 app.get('/api/bookings', async (req, res) => {
     try {
         const bookings = await Booking.find().sort({ createdAt: -1 });
-        res.json({ success: true, count: bookings.length, data: bookings });
+
+        res.status(200).json({
+            success: true,
+            count: bookings.length,
+            data: bookings
+        });
+
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
     }
 });
 
@@ -47,32 +82,78 @@ app.get('/api/bookings', async (req, res) => {
 app.get('/api/bookings/:id', async (req, res) => {
     try {
         const booking = await Booking.findById(req.params.id);
-        if (!booking) return res.status(404).json({ success: false, message: 'Booking not found' });
-        res.json({ success: true, data: booking });
+
+        if (!booking) {
+            return res.status(404).json({
+                success: false,
+                message: "Booking not found"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            data: booking
+        });
+
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
     }
 });
 
-// Create new booking
+// Create booking
 app.post('/api/bookings', async (req, res) => {
     try {
-        const booking = new Booking({ ...req.body, status: 'pending' });
-        await booking.save();
-        res.status(201).json({ success: true, message: 'Booking created', data: booking });
+        const bookingData = {
+            ...req.body,
+            status: "pending"
+        };
+
+        const booking = await Booking.create(bookingData);
+
+        res.status(201).json({
+            success: true,
+            message: "Booking created successfully",
+            data: booking
+        });
+
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
     }
 });
 
 // Update booking status
 app.patch('/api/bookings/:id/status', async (req, res) => {
     try {
-        const booking = await Booking.findByIdAndUpdate(req.params.id, { status: req.body.status }, { new: true });
-        if (!booking) return res.status(404).json({ success: false, message: 'Booking not found' });
-        res.json({ success: true, message: 'Status updated', data: booking });
+        const booking = await Booking.findByIdAndUpdate(
+            req.params.id,
+            { status: req.body.status },
+            { new: true, runValidators: true }
+        );
+
+        if (!booking) {
+            return res.status(404).json({
+                success: false,
+                message: "Booking not found"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Booking status updated successfully",
+            data: booking
+        });
+
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
     }
 });
 
@@ -80,34 +161,54 @@ app.patch('/api/bookings/:id/status', async (req, res) => {
 app.delete('/api/bookings/:id', async (req, res) => {
     try {
         const booking = await Booking.findByIdAndDelete(req.params.id);
-        if (!booking) return res.status(404).json({ success: false, message: 'Booking not found' });
-        res.json({ success: true, message: 'Booking deleted' });
+
+        if (!booking) {
+            return res.status(404).json({
+                success: false,
+                message: "Booking not found"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Booking deleted successfully"
+        });
+
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
     }
 });
 
 // Get bookings by customer email
 app.get('/api/bookings/customer/:email', async (req, res) => {
     try {
-        const bookings = await Booking.find({ customerEmail: req.params.email }).sort({ createdAt: -1 });
-        res.json({ success: true, count: bookings.length, data: bookings });
+        const bookings = await Booking.find({
+            customerEmail: req.params.email
+        }).sort({ createdAt: -1 });
+
+        res.status(200).json({
+            success: true,
+            count: bookings.length,
+            data: bookings
+        });
+
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
     }
 });
 
-// Health check
-app.get('/api/health', (req, res) => res.json({ success: true, message: 'API Running' }));
-
-
-// ✅ Serve index.html for all frontend routes
+// ===================== FRONTEND ROUTE =====================
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-
-// ✅ Start Server
-app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
-
-
+// ===================== SERVER START =====================
+app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+});
