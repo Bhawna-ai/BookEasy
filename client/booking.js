@@ -1,5 +1,5 @@
 // API Base URL - Update this to your server URL when deployed
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'https://bookeasy-2.onrender.com/api';
 
 // Business data for each service type
 const businesses = {
