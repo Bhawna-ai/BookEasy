@@ -106,12 +106,14 @@ app.get('/api/bookings/:id', async (req, res) => {
 // Create booking
 app.post('/api/bookings', async (req, res) => {
     try {
-        const bookingData = {
+        console.log("Incoming Booking Data:", req.body);
+
+        const booking = new Booking({
             ...req.body,
             status: "pending"
-        };
+        });
 
-        const booking = await Booking.create(bookingData);
+        await booking.save();
 
         res.status(201).json({
             success: true,
@@ -120,12 +122,15 @@ app.post('/api/bookings', async (req, res) => {
         });
 
     } catch (error) {
+        console.error("Booking Error:", error);
+
         res.status(500).json({
             success: false,
             message: error.message
         });
     }
 });
+
 
 // Update booking status
 app.patch('/api/bookings/:id/status', async (req, res) => {
