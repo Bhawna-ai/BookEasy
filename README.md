@@ -23,7 +23,7 @@ BookEasy is a full-stack booking web app that simplifies appointment management 
 
 | Layer      | Technology |
 |------------|------------|
-| Frontend   | HTML, CSS, JavaScript (vanilla) |
+| Frontend   | HTML, CSS, JavaScript |
 | Backend    | Node.js, Express.js |
 | Database   | MongoDB (via Mongoose) |
 | Tooling    | dotenv, cors, nodemon, pnpm |
